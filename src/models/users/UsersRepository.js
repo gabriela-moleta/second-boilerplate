@@ -32,7 +32,18 @@ class UsersRepository {
         user.password = password
 
         return user;
+    }
 
+    deleteUser(id) {
+        const user = this.getUserById(id);
+
+        if (!user) {
+            return null;
+        }
+
+        this.users = this.users.filter(u => u.id != id);
+
+        return user;
     }
 }
 
